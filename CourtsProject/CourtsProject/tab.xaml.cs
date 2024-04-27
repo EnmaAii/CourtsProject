@@ -25,6 +25,8 @@ namespace CourtsProject
         private int cntPressed5 = 0;
 
         private List<int> costList1 = new List<int> { 1700, 1700, 1700, 2100, 2100, 2100, 1800, 1800, 2400, 2400, 3200, 3200, 3200, 3200, 2600, 1800, 1600 };
+        private List<int> costList2 = new List<int> { 1700, 1700, 1700, 2100, 2100, 2100, 1800, 1800, 2400, 2400, 3200, 3200, 3200, 3200, 2600, 1700, 1400 };
+        private List<int> costList3 = new List<int> { 1700, 1700, 1700, 2000, 2000, 2000, 1800, 1800, 2200, 2200, 2900, 2900, 2900, 2900, 2500, 1700, 1400 };
 
 
         public tab()
@@ -212,7 +214,7 @@ namespace CourtsProject
                     {
                         Button btn = new Button
                         {
-                            Text = "1700", //to be modificated
+                            Text = costList2[i-1].ToString(),
                             TextColor = Color.Black,
                             CornerRadius = 0,
                             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
@@ -336,7 +338,7 @@ namespace CourtsProject
                     {
                         Button btn = new Button
                         {
-                            Text = "1700", //to be modificated
+                            Text = costList2[i - 1].ToString(),
                             TextColor = Color.Black,
                             CornerRadius = 0,
                             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
@@ -468,7 +470,7 @@ namespace CourtsProject
                     {
                         Button btn = new Button
                         {
-                            Text = "1700",  //to be modificated
+                            Text = costList3[i - 1].ToString(),
                             TextColor = Color.Black,
                             CornerRadius = 0,
                             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
