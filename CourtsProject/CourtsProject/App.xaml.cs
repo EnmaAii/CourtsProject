@@ -10,7 +10,8 @@ namespace CourtsProject
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SSO());
+            MainPage = new NavigationPage(new tab());
+            //NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override void OnStart()

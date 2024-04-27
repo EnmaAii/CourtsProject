@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="CourtsProject.tab"
+             android:TabbedPage.ToolbarPlacement="Bottom">
+  <!--Pages can be added as references or inline-->
+            
+    <ContentPage IconImageSource="info32">
+        <StackLayout Margin="0, 10">
+            
+            <Label Text="Теннисный клуб «Хасанский»" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Label/>
+            <Image Source="planCourt.png"/>
+
+        </StackLayout>
+
+    </ContentPage>
+
+    <ContentPage IconImageSource="calendar32">
+        
+        <StackLayout Margin="0, 10">
+
+            <Label x:Name="L1" Text="Теннисный клуб «Хасанский» бронирование кортов" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Label x:Name="L2" Text="Здесь Вы можете забронировать разовое посещение теннисных кортов. Выберите дату и время, нажмите ЗАБРОНИРОВАТЬ." FontSize="14" TextColor="Black" HorizontalTextAlignment="Center"/>
+
+
+            <!-- Лист с кнопками выбора корта -->
+            <StackLayout x:Name="StackInfo" Margin="0, 10" Padding="40, 10">
+                <Button Clicked="Btn1" Text="Хард (крытый)" FontSize="16" TextColor="Black" CornerRadius="15" BackgroundColor="LightGreen" TextTransform="None"/>
+                <Button Clicked="Btn2" Text="Грунт2 (открытый)" FontSize="16" TextColor="Black" CornerRadius="15" BackgroundColor="LightGreen" TextTransform="None"/>
+                <Button Clicked="Btn3" Text="Грунт3 (крытый)" FontSize="16" TextColor="Black" CornerRadius="15" BackgroundColor="LightGreen" TextTransform="None"/>
+                <Button Clicked="Btn4" Text="Грунт4 (крытый)" FontSize="16" TextColor="Black" CornerRadius="15" BackgroundColor="LightGreen" TextTransform="None"/>
+                <Button Clicked="Btn5" Text="Трава (открытый)" FontSize="16" TextColor="Black" CornerRadius="15" BackgroundColor="LightGreen" TextTransform="None" IsEnabled="False"/>
+
+            </StackLayout>
+
+            <!-- Лист с расписанием 1 -->
+            <StackLayout x:Name="ScheduleContainer1" Margin="0,0" IsVisible="false">
+
+                <StackLayout Orientation="Vertical">
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start" AlignContent="SpaceAround">
+                        <Frame HorizontalOptions="Start" Padding="4,0" Margin="10,0,0,0" BackgroundColor="#EFB858">
+                            <Label Text="Calendar" FontFamily="FiraSansBold" FontSize="12.8" TextColor="#FFFFFF" />
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="15" Padding="15,5" Margin="0,0,10,0" BackgroundColor="LightGreen">
+                            <Label Text="Хард (крытый)" FontSize="14" TextColor="Black" TextTransform="None"/>
+                        </Frame>
+                    </FlexLayout>
+                    <Label/>
+                </StackLayout>
+
+                <!-- Здесь будет отображаться таблица расписания -->
+            </StackLayout>
+            
+            <!-- Лист с расписанием 2 -->
+            <StackLayout x:Name="ScheduleContainer2" Margin="0,0" IsVisible="false">
+
+                <StackLayout Orientation="Vertical">
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start" AlignContent="SpaceAround">
+                        <Frame HorizontalOptions="Start" Padding="4,0" Margin="10,0,0,0" BackgroundColor="#EFB858">
+                            <Label Text="Calendar" FontFamily="FiraSansBold" FontSize="12.8" TextColor="#FFFFFF" />
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="15" Padding="15,5" Margin="0,0,10,0" BackgroundColor="LightGreen">
+                            <Label Text="Грунт2 (открытый)" FontSize="14" TextColor="Black" TextTransform="None"/>
+                        </Frame>
+                    </FlexLayout>
+                    <Label/>
+                </StackLayout>
+
+
+                <!-- Здесь будет отображаться таблица расписания -->
+            </StackLayout>
+
+            <!-- Лист с расписанием 3 -->
+            <StackLayout x:Name="ScheduleContainer3" Margin="0,0" IsVisible="false">
+
+                <StackLayout Orientation="Vertical">
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start" AlignContent="SpaceAround">
+                        <Frame HorizontalOptions="Start" Padding="4,0" Margin="10,0,0,0" BackgroundColor="#EFB858">
+                            <Label Text="Calendar" FontFamily="FiraSansBold" FontSize="12.8" TextColor="#FFFFFF" />
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="15" Padding="15,5" Margin="0,0,10,0" BackgroundColor="LightGreen">
+                            <Label Text="Грунт3 (крытый)" FontSize="14" TextColor="Black" TextTransform="None"/>
+                        </Frame>
+                    </FlexLayout>
+                    <Label/>
+                </StackLayout>
+
+
+                <!-- Здесь будет отображаться таблица расписания -->
+            </StackLayout>
+            
+            <!-- Лист с расписанием 4 -->
+            <StackLayout x:Name="ScheduleContainer4" Margin="0,0" IsVisible="false">
+
+                <StackLayout Orientation="Vertical">
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start" AlignContent="SpaceAround">
+                        <Frame HorizontalOptions="Start" Padding="4,0" Margin="10,0,0,0" BackgroundColor="#EFB858">
+                            <Label Text="Calendar" FontFamily="FiraSansBold" FontSize="12.8" TextColor="#FFFFFF" />
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="15" Padding="15,5" Margin="0,0,10,0" BackgroundColor="LightGreen">
+                            <Label Text="Грунт4 (крытый)" FontSize="14" TextColor="Black" TextTransform="None"/>
+                        </Frame>
+                    </FlexLayout>
+                    <Label/>
+                </StackLayout>
+
+
+                <!-- Здесь будет отображаться таблица расписания -->
+            </StackLayout>
+
+            <!-- Лист с расписанием 5 -->
+            <StackLayout x:Name="ScheduleContainer5" Margin="0,0" IsVisible="false">
+
+                <StackLayout Orientation="Vertical">
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start" AlignContent="SpaceAround">
+                        <Frame HorizontalOptions="Start" Padding="4,0" Margin="10,0,0,0" BackgroundColor="#EFB858">
+                            <Label Text="Calendar" FontFamily="FiraSansBold" FontSize="12.8" TextColor="#FFFFFF" />
+                        </Frame>
+                        <Frame HorizontalOptions="Center" CornerRadius="15" Padding="15,5" Margin="0,0,10,0" BackgroundColor="LightGreen">
+                            <Label Text="Трава (открытый)" FontSize="14" TextColor="Black" TextTransform="None"/>
+                        </Frame>
+                    </FlexLayout>
+                    <Label/>
+                </StackLayout>
+
+
+                <!-- Здесь будет отображаться таблица расписания -->
+            </StackLayout>
+
+
+            <Button x:Name="orderBtn" Text="Забронировать" TextColor="White"  BackgroundColor="Indigo" CornerRadius="15" Margin="50,0" IsVisible="false"/>
+
+
+            <!-- Лист с окончательной бронью -->
+            <StackLayout x:Name="orderList" Margin="0,0" IsVisible="false">
+
+                <Label x:Name="L3" Text="Бронь" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
+                
+            </StackLayout>
+            
+        </StackLayout>
+        
+    </ContentPage>
+    
+    <ContentPage IconImageSource="user32">
+        <StackLayout Margin="0, 10">
+
+            <Label Text="Профиль" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Frame CornerRadius="15" Margin="50,15" Padding="15,10">
+                <Label Text="Ваше Имя" HorizontalOptions="StartAndExpand" BackgroundColor="Wheat"/>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>
