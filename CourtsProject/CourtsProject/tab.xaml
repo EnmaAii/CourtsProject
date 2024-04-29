@@ -24,6 +24,7 @@
             <Label x:Name="L1" Text="Теннисный клуб «Хасанский» бронирование кортов" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
             <Label x:Name="L2" Text="Здесь Вы можете забронировать разовое посещение теннисных кортов. Выберите дату и время, нажмите ЗАБРОНИРОВАТЬ." FontSize="14" TextColor="Black" HorizontalTextAlignment="Center"/>
 
+            
 
             <!-- Лист с кнопками выбора корта -->
             <StackLayout x:Name="StackInfo" Margin="0, 10" Padding="40, 10">

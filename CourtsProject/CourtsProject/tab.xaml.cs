@@ -28,6 +28,9 @@ namespace CourtsProject
         private List<int> costList2 = new List<int> { 1700, 1700, 1700, 2100, 2100, 2100, 1800, 1800, 2400, 2400, 3200, 3200, 3200, 3200, 2600, 1700, 1400 };
         private List<int> costList3 = new List<int> { 1700, 1700, 1700, 2000, 2000, 2000, 1800, 1800, 2200, 2200, 2900, 2900, 2900, 2900, 2500, 1700, 1400 };
 
+        private int[,] selectedTime1 = new int[3, 18];
+        private int[,] selectedTime2 = new int[6, 18]; 
+        private int[,] selectedTime3 = new int[4, 18];
 
         public tab()
         {
@@ -107,19 +110,42 @@ namespace CourtsProject
                             CornerRadius = 0,
                             HasShadow = false
                         };
+
+                        int row = i;
+                        int column = j;
+
+                        Grid.SetRow(btn, row);
+                        Grid.SetColumn(btn, column);
+
                         btn.Clicked += (s, ea) =>
                         {
                             Button clickedButton = (Button)s;
 
-                            if (clickedButton.BackgroundColor == Color.LightBlue) { clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); cntPressed1--; }
-                            else { clickedButton.BackgroundColor = Color.LightBlue; cntPressed1++; }
+                            int clickedRow = Grid.GetRow(clickedButton);
+                            int clickedColumn = Grid.GetColumn(clickedButton);
+
+                            if (clickedButton.BackgroundColor == Color.LightBlue) 
+                            { 
+                                clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
+                                cntPressed1--;
+                                //selectedTime1[j-1, i - 1]--;
+                            }
+                            else 
+                            { 
+                                clickedButton.BackgroundColor = Color.LightBlue;
+                                cntPressed1++;
+                                //selectedTime1[j-1, i - 1]++;
+                                Label lb = new Label();
+                                lb.Text = $"i-{row}, j-{column}";
+                                orderList.Children.Add(lb);
+                            }
 
                             if (cntPressed1 > 0) orderBtn.IsVisible = true;
                             else if (cntPressed1 == 0) orderBtn.IsVisible = false;
                         };
                         orderBtn.Clicked += (s, ea) =>
                         {
-                            orderBtn.IsVisible = false;
+                            /*orderBtn.IsVisible = false;
                             Button clickedButton = (Button)s;
 
                             ScheduleContainer1.IsVisible = false;
@@ -129,7 +155,8 @@ namespace CourtsProject
                             L2.IsVisible = false;
 
                             orderList.IsVisible = true;
-                            L3.IsVisible = true;
+                            L3.IsVisible = true;*/
+                            ordBtn(s, ea);
                         };
 
                         frame.Content = btn;
@@ -142,8 +169,20 @@ namespace CourtsProject
                             TextColor = Color.Black,
                             FontSize = 16
                         };
-                        if (j == 0) { frame.Content = labelTime; grid.Children.Add(frame, 0, i); }
-                        else grid.Children.Add(frame, j, i);
+                        if (j == 0)
+                        {
+                            frame.Content = labelTime;
+                            //grid.Children.Add(frame, 0, i); 
+                            Grid.SetRow(frame, i); // Устанавливаем строку для первой колонки
+                            Grid.SetColumn(frame, 0); // Устанавливаем столбец для первой колонки
+                        }
+                        else
+                        {
+                            //grid.Children.Add(frame, j, i);
+                            Grid.SetRow(frame, i); // Устанавливаем строку для остальных колонок
+                            Grid.SetColumn(frame, j); // Устанавливаем столбец для остальных колонок
+                        }
+                        grid.Children.Add(frame);
                     }
                 }
                 schedulePage.Content = grid;
@@ -235,25 +274,25 @@ namespace CourtsProject
                         {
                             Button clickedButton = (Button)s;
 
-                            if (clickedButton.BackgroundColor == Color.LightBlue) { clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); cntPressed2--; }
-                            else { clickedButton.BackgroundColor = Color.LightBlue; cntPressed2++; }
+                            if (clickedButton.BackgroundColor == Color.LightBlue) 
+                            { 
+                                clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
+                                cntPressed2--;
+                                selectedTime2[j, i - 1]--;
+                            }
+                            else 
+                            { 
+                                clickedButton.BackgroundColor = Color.LightBlue; 
+                                cntPressed2++;
+                                selectedTime2[j, i - 1]++;
+                            }
 
                             if (cntPressed2 > 0) orderBtn.IsVisible = true;
                             else if (cntPressed2 == 0) orderBtn.IsVisible = false;
                         };
                         orderBtn.Clicked += (s, ea) =>
                         {
-                            orderBtn.IsVisible = false;
-                            Button clickedButton = (Button)s;
-
-                            ScheduleContainer2.IsVisible = false;
-                            StackInfo.IsVisible = false;
-
-                            L1.IsVisible = false;
-                            L2.IsVisible = false;
-
-                            orderList.IsVisible = true;
-                            L3.IsVisible = true;
+                            ordBtn(s, ea);
                         };
 
                         frame.Content = btn;
@@ -359,25 +398,25 @@ namespace CourtsProject
                         {
                             Button clickedButton = (Button)s;
 
-                            if (clickedButton.BackgroundColor == Color.LightBlue) { clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); cntPressed3--; }
-                            else { clickedButton.BackgroundColor = Color.LightBlue; cntPressed3++; }
+                            if (clickedButton.BackgroundColor == Color.LightBlue) 
+                            { 
+                                clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
+                                cntPressed3--;
+                                selectedTime2[j, i - 1]--;
+                            }
+                            else 
+                            { 
+                                clickedButton.BackgroundColor = Color.LightBlue; 
+                                cntPressed3++;
+                                selectedTime2[j, i - 1]++;
+                            }
 
                             if (cntPressed3 > 0) orderBtn.IsVisible = true;
                             else if (cntPressed3 == 0) orderBtn.IsVisible = false;
                         };
                         orderBtn.Clicked += (s, ea) =>
                         {
-                            orderBtn.IsVisible = false;
-                            Button clickedButton = (Button)s;
-
-                            ScheduleContainer3.IsVisible = false;
-                            StackInfo.IsVisible = false;
-
-                            L1.IsVisible = false;
-                            L2.IsVisible = false;
-
-                            orderList.IsVisible = true;
-                            L3.IsVisible = true;
+                            ordBtn(s,ea);
                         };
 
                         frame.Content = btn;
@@ -491,25 +530,25 @@ namespace CourtsProject
                         {
                             Button clickedButton = (Button)s;
 
-                            if (clickedButton.BackgroundColor == Color.LightBlue) { clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); cntPressed4--; }
-                            else { clickedButton.BackgroundColor = Color.LightBlue; cntPressed4++; }
+                            if (clickedButton.BackgroundColor == Color.LightBlue) 
+                            { 
+                                clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
+                                cntPressed4--;
+                                selectedTime3[j, i - 1]--;
+                            }
+                            else 
+                            { 
+                                clickedButton.BackgroundColor = Color.LightBlue; 
+                                cntPressed4++;
+                                selectedTime3[j, i - 1]++;
+                            }
 
                             if (cntPressed4 > 0) orderBtn.IsVisible = true;
                             else if (cntPressed4 == 0) orderBtn.IsVisible = false;
                         };
                         orderBtn.Clicked += (s, ea) =>
                         {
-                            orderBtn.IsVisible = false;
-                            Button clickedButton = (Button)s;
-
-                            ScheduleContainer4.IsVisible = false;
-                            StackInfo.IsVisible = false;
-
-                            L1.IsVisible = false;
-                            L2.IsVisible = false;
-
-                            orderList.IsVisible = true;
-                            L3.IsVisible = true;
+                            ordBtn(s, ea);
                         };
 
                         frame.Content = btn;
@@ -671,7 +710,42 @@ namespace CourtsProject
             L3.IsVisible = false;
         }
 
-        protected override bool OnBackButtonPressed()
+
+        private void ordBtn(object sender, EventArgs e)
+        {
+            orderBtn.IsVisible = false;
+            Button clickedButton = (Button)sender;
+
+            ScheduleContainer1.IsVisible = false;
+            ScheduleContainer2.IsVisible = false;
+            ScheduleContainer3.IsVisible = false;
+            ScheduleContainer4.IsVisible = false;
+            StackInfo.IsVisible = false;
+
+            L1.IsVisible = false;
+            L2.IsVisible = false;
+
+            orderList.IsVisible = true;
+            L3.IsVisible = true;
+
+            int rows = selectedTime1.GetLength(0);
+            int columns = selectedTime1.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (selectedTime1[i, j] > 0)
+                    {
+                        Label label = new Label();
+                        label.Text = $"{j + 7}:00-{j + 8}:00 Корт{i + 1} Хард (крытый)";
+                        orderList.Children.Add(label);
+                    }
+                }
+            }
+        }
+
+    protected override bool OnBackButtonPressed()
         {
             orderBtn.IsVisible = false;
             ScheduleContainer1.IsVisible = false;
