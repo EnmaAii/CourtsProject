@@ -129,6 +129,7 @@ namespace CourtsProject
                                 clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
                                 cntPressed1--;
                                 //selectedTime1[j-1, i - 1]--;
+
                             }
                             else 
                             { 
