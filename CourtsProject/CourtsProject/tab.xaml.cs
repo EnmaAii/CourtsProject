@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourtsProject.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,11 +33,45 @@ namespace CourtsProject
         private int[,] selectedTime2 = new int[6, 18]; 
         private int[,] selectedTime3 = new int[4, 18];
 
+        protected override void OnAppearing()
+        {
+            ShowItems();
+        }
+
+        private void ShowItems()
+        {
+
+        }
+
+        private void AddItemButton(object sender, EventArgs e)
+        {
+
+            string Phone = phoneField.Text.Trim();
+            DateTime formattedDate = Convert.ToDateTime(dateField.Text.Trim());
+            string court = courtField.Text.Trim();
+            string comment = commentField.Text.Trim();
+            Bron bron = new Bron
+            {
+                Phone = Phone,
+                Date = formattedDate,
+                Comment = comment,
+                Court = court
+            };
+            App.Bd.SaveItem(bron);
+            ShowItems();
+
+            phoneField.Text = "";
+            dateField.Text = "";
+            courtField.Text = "";
+            commentField.Text = "";
+        }
+
         public tab()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
+
 
         private void Btn1(object sender, EventArgs e)
         {

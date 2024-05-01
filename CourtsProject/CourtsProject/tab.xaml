@@ -138,9 +138,29 @@
             <StackLayout x:Name="orderList" Margin="0,0" IsVisible="false">
 
                 <Label x:Name="L3" Text="Бронь" FontSize="24" TextColor="Black" HorizontalTextAlignment="Center"/>
-                
+
+                <Entry x:Name="phoneField" Placeholder="Enter phone" />
+                <Editor x:Name="dateField" Placeholder="Enter date" HeightRequest="200"/>
+                <Entry x:Name="courtField" Placeholder="Enter Court" />
+                <Entry x:Name="commentField" Placeholder="Enter Comment" />
+                <Button Text="Add item" Clicked="AddItemButton" />
+                <CollectionView x:Name="itemsCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding Phone}" />
+                                <Label Text="{Binding Court}" />
+                                <Label Text="{Binding Date}" />
+                                <Label Text="{Binding Comment}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
             </StackLayout>
-            
+
+           
         </StackLayout>
         
     </ContentPage>
