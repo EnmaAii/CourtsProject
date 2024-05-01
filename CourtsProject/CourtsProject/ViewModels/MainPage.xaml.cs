@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CourtsProject.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace CourtsProject
 {
@@ -14,5 +16,7 @@ namespace CourtsProject
         {
             InitializeComponent();
         }
+
+       
     }
 }
