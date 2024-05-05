@@ -25,6 +25,9 @@ namespace CourtsProject
         private int cntPressed4 = 0;
         private int cntPressed5 = 0;
 
+        private bool isOrderBtnClicked = false;
+
+
         private List<int> costList1 = new List<int> { 1700, 1700, 1700, 2100, 2100, 2100, 1800, 1800, 2400, 2400, 3200, 3200, 3200, 3200, 2600, 1800, 1600 };
         private List<int> costList2 = new List<int> { 1700, 1700, 1700, 2100, 2100, 2100, 1800, 1800, 2400, 2400, 3200, 3200, 3200, 3200, 2600, 1700, 1400 };
         private List<int> costList3 = new List<int> { 1700, 1700, 1700, 2000, 2000, 2000, 1800, 1800, 2200, 2200, 2900, 2900, 2900, 2900, 2500, 1700, 1400 };
@@ -164,7 +167,7 @@ namespace CourtsProject
                                 clickedButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0); 
                                 cntPressed1--;
                                 //selectedTime1[j-1, i - 1]--;
-
+                                selectedTime1[clickedColumn-1, clickedRow]--;
                             }
                             else 
                             { 
@@ -172,8 +175,9 @@ namespace CourtsProject
                                 cntPressed1++;
                                 //selectedTime1[j-1, i - 1]++;
                                 Label lb = new Label();
-                                lb.Text = $"i-{row}, j-{column}";
-                                orderList.Children.Add(lb);
+                                //lb.Text = $"Время {clickedRow + 6}:00-{clickedRow + 7}:00 Корт{clickedColumn} {costList1[clickedRow-1]}";
+                                //orderList.Children.Add(lb);
+                                selectedTime1[clickedColumn-1, clickedRow]++;
                             }
 
                             if (cntPressed1 > 0) orderBtn.IsVisible = true;
@@ -192,7 +196,12 @@ namespace CourtsProject
 
                             orderList.IsVisible = true;
                             L3.IsVisible = true;*/
-                            ordBtn(s, ea);
+
+                            if (!isOrderBtnClicked)
+                            {
+                                isOrderBtnClicked = true;
+                                ordBtn(s, ea);
+                            }
                         };
 
                         frame.Content = btn;
@@ -767,6 +776,8 @@ namespace CourtsProject
             int rows = selectedTime1.GetLength(0);
             int columns = selectedTime1.GetLength(1);
 
+            orderList.Children.Clear();
+
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -774,7 +785,7 @@ namespace CourtsProject
                     if (selectedTime1[i, j] > 0)
                     {
                         Label label = new Label();
-                        label.Text = $"{j + 7}:00-{j + 8}:00 Корт{i + 1} Хард (крытый)";
+                        label.Text = $"{j + 6}:00-{j + 7}:00 Корт{i + 1} Хард (крытый)";
                         orderList.Children.Add(label);
                     }
                 }
@@ -793,6 +804,8 @@ namespace CourtsProject
             L1.IsVisible = true;
             L2.IsVisible = true;
             L3.IsVisible = false;
+
+            isOrderBtnClicked = false;
 
             return true;
         }
