@@ -1,0 +1,13 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:local2="clr-namespace:CourtsProject.Views"
+         xmlns:local="clr-namespace:CourtsProject"
+         x:Class="CourtsProject.Views.AppShell">
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate local2:LoginPage}"/>
+    </ShellItem>
+
+    <ShellItem Route="main">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    </ShellItem>
+</Shell>
